@@ -1,0 +1,65 @@
+Switch configuracion
+
+creacion de las vlan
+
+enable
+config ter
+vlan 2 --> numero de vlan 
+name pink --> nombre de la vlan
+end
+
+asignacion de puertos
+
+config ter
+interface range fa 0/2---> numero de vlan
+switchport mode access
+switchport access vlan 2--->numero de vlan
+end
+Copy run start
+
+Configurar troncal
+
+enable
+config ter
+interface fa 0/1--->puerto donde esta conectado el router
+switchport mode trunk
+exit
+exit
+Copy run start
+
+Configuracion de router
+ 
+enable
+config ter 
+interface fa 0/0--->Donde esta conectado el switch en el puerto del router
+No shutdown
+exit
+interface fa 0/0.2-->puerto de conexion del switch y numero de vlan
+encapsulation dot1q 2-->numero de vlan
+ip address 194.10.6.1 255.255.255.0 ---> gateway y submascara
+exit
+exit
+Copy run start
+
+
+Enrutamiento
+
+enable
+config ter
+interface se0/0/0
+ip address 10.0.0.1 255.0.0.0
+no shutdown
+exit
+router rip
+network 10.0.0.0
+exit
+exit
+copy run start
+ 
+Enrutamiento_estatico
+ip route (direccion ip que no conoce) (submascara) (ip del router)
+
+
+
+  
+
