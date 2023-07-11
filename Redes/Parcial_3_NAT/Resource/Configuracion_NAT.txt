@@ -1,0 +1,12 @@
+Access-list 1 permit ip privada (red) (WC)
+ip nat inside source list 1 interface Se 0/0/0 overload
+interface fa 0/0 
+ip nat inside 
+exit
+
+otro
+interface se 0/0/0
+ip nat outside
+exit
+exit
+copy run start
