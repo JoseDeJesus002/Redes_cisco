@@ -36,3 +36,13 @@ interface fa 0/0
 ip access-group 1 out
 exit
 exit
+
+Ejemplo por host
+
+no access-list 102
+access-list 102 deny ip 13.0.0.3 0.0.0.0 10.0.0.4 0.0.0.0 
+access-list 102 permit ip any any
+interface fa 0/0
+ip access-group 102 in
+end
+copy run start
