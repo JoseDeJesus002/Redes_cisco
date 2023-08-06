@@ -1,0 +1,11 @@
+Clase C
+Gateway
+194.100.8.1
+
+Clase B
+Gateway
+132.90.0.1
+
+Clase A
+Gateway
+10.1.1.0

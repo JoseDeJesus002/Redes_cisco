@@ -1,0 +1,42 @@
+ACL estandar siempre cerca del destino
+ACL etendida cerca del origen o donde convenga mas activarla
+
+ACL ESTANDAR
+enable
+config ter
+access-list # deny/permit 13.0.0.3 (WildCard)
+access-list # permit/deny any
+exit
+config ter
+interface fa 0/0 --> puerto interface donde se va activar
+ip access-group (Numero de ACL) out/in
+exit
+exit
+copy run start
+
+ACL EXTENDIDA
+enable
+config t
+access-list 101 deny/permit ip (Ip Origen (WildCard)) (Ip Destino (WildCard))
+access-list 101 permit/deny ip any any
+interface fa 1/1 --> puerto interface donde se va activar
+ip access-group (Numero de ACL) in/out
+exit
+exit
+copy run start
+
+BORRAR ACL
+no access-list (Numero de ACL)
+
+MOSTRAR ACL'S 
+enable
+show access-lists
+
+Ejemplo Bloqueo por host ACL
+
+access-list 102 deny ip 13.0.0.3 0.0.0.0 10.0.0.4 0.0.0.0 
+access-list 102 permit ip any any
+interface fa 0/0
+ip access-group 102 in
+end
+copy run start
