@@ -1,5 +1,0 @@
-red vlan no se comunica con la red routing estatico 
-Solo el servidor DHCP se comunica con la red de Clase A
-Las redes del router B hacia red WIFI utilizan NAT estatico 
-
-mientras que la red de routing estatico salen con NAT DHCP o dinamico 
